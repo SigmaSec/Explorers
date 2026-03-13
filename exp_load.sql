@@ -23,6 +23,8 @@ CREATE TABLE rooms (
     CONSTRAINT rooms_name_ck UNIQUE (name)
 );
 
+INSERT INTO explorers (expID, name, username, Room_ID) VALUES (1, 'Tired', 'tootired', 1);
+INSERT INTO explorers (expID, name, username, Room_ID) VALUES (2, 'Help', 'Me', 2);
 CREATE TABLE explorers (
     expID number,
     name VARCHAR2(255),
