@@ -14,6 +14,7 @@ INSERT INTO rooms (roomID, name, description) VALUES (6, 'asldkfjl', 'aslkdjg');
 --SIX SEVENN!!
 INSERT INTO rooms (roomID, name, description) VALUES (7, 'jaksldjf', 'aldfjlkj');
 INSERT INTO rooms (roomID, name, description) VALUES (8, 'adfkjalekfj', 'ioaejgklerj');
+
 CREATE TABLE rooms (
     roomID number,
     name VARCHAR2(50),
@@ -25,6 +26,7 @@ CREATE TABLE rooms (
 
 INSERT INTO explorers (expID, name, username, Room_ID) VALUES (1, 'Tired', 'tootired', 1);
 INSERT INTO explorers (expID, name, username, Room_ID) VALUES (2, 'Help', 'Me', 2);
+
 CREATE TABLE explorers (
     expID number,
     name VARCHAR2(255),
@@ -36,6 +38,8 @@ CREATE TABLE explorers (
     CONSTRAINT explorers_name_ck UNIQUE (name)
 );
 
+INSERT INTO npcs (npcID, type, roomID) VALUES (1, 'Typescript', 1);
+INSERT INTO npcs (npcID, type, roomID) VALUES (2, 'Javascript', 2);
 CREATE TABLE npcs (
     npcID number,
     type VARCHAR2(255),
@@ -75,6 +79,7 @@ INSERT INTO connections (room1, room2) VALUES (5, 6);
 INSERT INTO connections (room1, room2) VALUES (6, 7);
 -- SIX SEVEN!!!
 INSERT INTO connections (room1, room2) VALUES (7, 8);
+
 CREATE TABLE connections (
     room1 number,
     room2 number,
