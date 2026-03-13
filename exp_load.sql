@@ -69,6 +69,7 @@ INSERT INTO connections (room1, room2) VALUES (1, 2);
 INSERT INTO connections (room1, room2) VALUES (2, 3);
 INSERT INTO connections (room1, room2) VALUES (3, 4);
 INSERT INTO connections (room1, room2) VALUES (4, 5);
+INSERT INTO connections (room1, room2) VALUES (5, 6);
 INSERT INTO connections (room1, room2) VALUES (6, 7);
 -- SIX SEVEN!!!
 INSERT INTO connections (room1, room2) VALUES (7, 8);
