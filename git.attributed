@@ -1,0 +1,4 @@
+#basic setup for Oracle SQL language
+
+*.sql linguist-detectable=true
+*.sql linguist-language=sql
