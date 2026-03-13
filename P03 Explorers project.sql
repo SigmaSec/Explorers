@@ -1,3 +1,10 @@
+TRUNCATE TABLE rooms;
+TRUNCATE TABLE explorers;
+TRUNCATE TABLE npcs;
+TRUNCATE TABLE treasures;
+TRUNCATE TABLE connections;
+
+
 CREATE TABLE rooms (
     roomID number,
     name VARCHAR2(50),
