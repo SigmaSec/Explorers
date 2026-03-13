@@ -1,3 +1,12 @@
+CREATE TABLE rooms (
+    roomID number,
+    name VARCHAR2(50),
+    description VARCHAR2(255),
+
+    CONSTRAINT rooms_roomID_pk PRIMARY KEY (roomID),
+    CONSTRAINT rooms_name_ck UNIQUE (name)
+);
+
 CREATE TABLE explorers (
     expID number,
     name VARCHAR2(255),
@@ -38,15 +47,6 @@ CREATE TABLE treasures (
         (npcID IS NOT NULL AND expID IS NULL AND roomID IS NULL) OR
         (roomID IS NOT NULL AND expID IS NULL AND npcID IS NULL)
         )
-);
-
-CREATE TABLE rooms (
-    roomID number,
-    name VARCHAR2(50),
-    description VARCHAR2(255),
-
-    CONSTRAINT rooms_roomID_pk PRIMARY KEY (roomID),
-    CONSTRAINT rooms_name_ck UNIQUE (name)
 );
 
 CREATE TABLE connections (
