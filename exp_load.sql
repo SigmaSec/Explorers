@@ -28,3 +28,16 @@ INSERT INTO connections (room1, room2) VALUES (5, 6);
 INSERT INTO connections (room1, room2) VALUES (6, 7);
 -- SIX SEVEN!!!
 INSERT INTO connections (room1, room2) VALUES (7, 8);
+
+INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (1,1,1,1,'yerp',1,1);
+INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (2,2,2,2,'mhm',2,2);
+INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (3,3,3,3,'asjldkf',3,3);
+INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (4,4,4,4,'ahga',4,4);
+INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (5,5,5,5,'help',5,5);
+INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (6,6,6,6,'hello',6,6);
+INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (7,7,7,7,'hi',7,7);
+INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (8,8,8,8,'yeppers',8,8);
+INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (9,9,9,9,'pbinq',9,9);
+INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (10,10,10,10,'pbj',10,10);
+INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (11,11,11,11,'hungry',11,11);
+INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (12,12,12,12,'zdxvbb',12,12);
