@@ -1,4 +1,4 @@
-#basic setup for Oracle SQL language
+# Basic .gitattributed for sql files
 
 *.sql linguist-detectable=true
 *.sql linguist-language=sql
