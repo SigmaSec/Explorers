@@ -46,7 +46,7 @@ CREATE TABLE rooms (
     description VARCHAR2(255),
 
     CONSTRAINT rooms_roomID_pk PRIMARY KEY (roomID),
-    CONSTRAINT rooms_name_ck UNIQUE (name),
+    CONSTRAINT rooms_name_ck UNIQUE (name)
 );
 
 CREATE TABLE connections (
@@ -56,5 +56,5 @@ CREATE TABLE connections (
     CONSTRAINT connections_rooms_pk PRIMARY KEY (room1, room2),
     CONSTRAINT connections_room1_fk FOREIGN KEY (room1) REFERENCES rooms(roomID),
     CONSTRAINT connections_room2_fk FOREIGN KEY (room2) REFERENCES rooms(roomID),
-    CONSTRAINT connections_rooms_ck CHECK (room1 != room2),
+    CONSTRAINT connections_rooms_ck CHECK (room1 != room2)
 );
