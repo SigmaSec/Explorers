@@ -9,3 +9,4 @@ INSERT INTO explorers (expID, name, username, Room_ID) VALUES (1, 'Hi','NoxNostr
 INSERT INTO explorers (expID, name, username, Room_ID) VALUES (2, 'Bebop','TheLash', 1);
 INSERT INTO explorers (expID, name, username, Room_ID) VALUES (3, 'Bebop','Dynamo', 3);
 INSERT INTO explorers (expID, name, username, Room_ID) VALUES (4, 'Admiral','Dynamo',4);
+
