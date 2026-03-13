@@ -5,6 +5,14 @@ TRUNCATE TABLE treasures;
 TRUNCATE TABLE connections;
 
 
+INSERT INTO rooms (roomID, name, description) VALUES (1, 'foo', 'bar');
+INSERT INTO rooms (roomID, name, description) VALUES (2, 'meep', 'merp');
+INSERT INTO rooms (roomID, name, description) VALUES (3, 'ayasdhf', 'empr');
+INSERT INTO rooms (roomID, name, description) VALUES (4, 'adjfl', 'aipojdfkl');
+INSERT INTO rooms (roomID, name, description) VALUES (5, 'jasjdfoja', 'asdfjlk');
+INSERT INTO rooms (roomID, name, description) VALUES (6, 'asldkfjl', 'aslkdjg');
+INSERT INTO rooms (roomID, name, description) VALUES (7, 'jaksldjf', 'aldfjlkj');
+INSERT INTO rooms (roomID, name, description) VALUES (8, 'adfkjalekfj', 'ioaejgklerj');
 CREATE TABLE rooms (
     roomID number,
     name VARCHAR2(50),
