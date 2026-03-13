@@ -24,7 +24,7 @@ CREATE TABLE npcs (
     roomID number,
 
     CONSTRAINT npcs_pk PRIMARY KEY (npcID),
-    CONSTRAINT roomID_fk FOREIGN KEY (roomID) REFERENCES rooms(roomID)
+    CONSTRAINT npcs_roomID_fk FOREIGN KEY (roomID) REFERENCES rooms(roomID)
 );
 
 CREATE TABLE treasures (
