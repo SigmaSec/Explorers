@@ -1,43 +1,60 @@
-TRUNCATE TABLE treasures;
-TRUNCATE TABLE npcs;
-TRUNCATE TABLE explorers;
-TRUNCATE TABLE connections;
-TRUNCATE TABLE rooms;
+CREATE TABLE rooms (
+    roomID number,
+    name VARCHAR2(50),
+    description VARCHAR2(255),
 
-INSERT INTO rooms (roomID, name, description) VALUES (1, 'foo', 'bar');
-INSERT INTO rooms (roomID, name, description) VALUES (2, 'meep', 'merp');
-INSERT INTO rooms (roomID, name, description) VALUES (3, 'ayasdhf', 'empr');
-INSERT INTO rooms (roomID, name, description) VALUES (4, 'adjfl', 'aipojdfkl');
-INSERT INTO rooms (roomID, name, description) VALUES (5, 'jasjdfoja', 'asdfjlk');
-INSERT INTO rooms (roomID, name, description) VALUES (6, 'asldkfjl', 'aslkdjg');
---SIX SEVENN!!
-INSERT INTO rooms (roomID, name, description) VALUES (7, 'jaksldjf', 'aldfjlkj');
-INSERT INTO rooms (roomID, name, description) VALUES (8, 'adfkjalekfj', 'ioaejgklerj');
+    CONSTRAINT rooms_roomID_pk PRIMARY KEY (roomID),
+    CONSTRAINT rooms_name_ck UNIQUE (name)
+);
 
-INSERT INTO explorers (expID, name, username, Room_ID) VALUES (1, 'Tired', 'tootired', 1);
-INSERT INTO explorers (expID, name, username, Room_ID) VALUES (2, 'Help', 'Me', 2);
+CREATE TABLE explorers (
+    expID number,
+    name VARCHAR2(255),
+    username VARCHAR2(255),
+    Room_ID number,
 
-INSERT INTO npcs (npcID, type, roomID) VALUES (1, 'Typescript', 1);
-INSERT INTO npcs (npcID, type, roomID) VALUES (2, 'Javascript', 2);
+    CONSTRAINT explorers_pk PRIMARY KEY (expID),
+    CONSTRAINT rooms_fk FOREIGN KEY (Room_ID) REFERENCES rooms(roomID),
+    CONSTRAINT explorers_name_ck UNIQUE (name)
+);
 
-INSERT INTO connections (room1, room2) VALUES (1, 2);
-INSERT INTO connections (room1, room2) VALUES (2, 3);
-INSERT INTO connections (room1, room2) VALUES (3, 4);
-INSERT INTO connections (room1, room2) VALUES (4, 5);
-INSERT INTO connections (room1, room2) VALUES (5, 6);
-INSERT INTO connections (room1, room2) VALUES (6, 7);
--- SIX SEVEN!!!
-INSERT INTO connections (room1, room2) VALUES (7, 8);
+CREATE TABLE npcs (
+    npcID number,
+    type VARCHAR2(255),
+    roomID number,
 
-INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (1,1,NULL,NULL,'yerp',1,1);
-INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (2,2,NULL,NULL,'mhm',2,2);
-INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (3,3,NULL,NULL,'asjldkf',3,3);
-INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (4,4,NULL,NULL,'ahga',4,4);
-INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (5,5,NULL,NULL,'help',5,5);
-INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (6,6,NULL,NULL,'hello',6,6);
-INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (7,7,NULL,NULL,'hi',7,7);
-INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (8,8,NULL,NULL,'yeppers',8,8);
-INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (9,9,NULL,NULL,'pbinq',9,9);
-INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (10,10,NULL,NULL,'pbj',10,10);
-INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (11,11,NULL,NULL,'hungry',11,11);
-INSERT INTO treasures (tresID, expID, npcID, roomID, description, value, weight) VALUES (12,12,NULL,NULL,'zdxvbb',12,12);
+    CONSTRAINT npcs_pk PRIMARY KEY (npcID),
+    CONSTRAINT npcs_roomID_fk FOREIGN KEY (roomID) REFERENCES rooms(roomID)
+);
+
+CREATE TABLE treasures (
+    tresID number,
+    expID number,
+    npcID number,
+    roomID number,
+    description VARCHAR2(255),
+    value number,
+    weight number,
+
+    CONSTRAINT treasure_pk PRIMARY KEY (tresID),
+    CONSTRAINT expID_fk FOREIGN KEY (expID) REFERENCES explorers(expID),
+    CONSTRAINT npcID_fk FOREIGN KEY (npcID) REFERENCES npcs(npcID),
+    CONSTRAINT roomID_fk FOREIGN KEY (roomID) REFERENCES rooms(roomID),
+    CONSTRAINT treasure_value_ck CHECK (value > 0),
+    CONSTRAINT treasure_weight_ck CHECK (weight >= 0),
+    CONSTRAINT has_location_ck CHECK (
+        (expID IS NOT NULL AND npcID IS NULL AND roomID IS NULL) OR 
+        (npcID IS NOT NULL AND expID IS NULL AND roomID IS NULL) OR
+        (roomID IS NOT NULL AND expID IS NULL AND npcID IS NULL)
+        )
+);
+
+CREATE TABLE connections (
+    room1 number,
+    room2 number,
+
+    CONSTRAINT connections_rooms_pk PRIMARY KEY (room1, room2),
+    CONSTRAINT connections_room1_fk FOREIGN KEY (room1) REFERENCES rooms(roomID),
+    CONSTRAINT connections_room2_fk FOREIGN KEY (room2) REFERENCES rooms(roomID),
+    CONSTRAINT connections_rooms_ck CHECK (room1 != room2)
+);
