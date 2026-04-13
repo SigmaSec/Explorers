@@ -58,3 +58,10 @@ CREATE TABLE connections (
     CONSTRAINT connections_room2_fk FOREIGN KEY (room2) REFERENCES rooms(roomID),
     CONSTRAINT connections_rooms_ck CHECK (room1 != room2)
 );
+
+ALTER TABLE explorers ADD(
+    bag_wt NUMBER DEFAULT 0 CONSTRAINT bag_wt_ck CHECK (bag_wt >= 0),
+    bag_cnt NUMBER DEFAULT 0 CONSTRAINT bag_cnt_ck CHECK (bag_cnt >= 0),
+    max_weight NUMBER DEFAULT 10 CONSTRAINT max_weight_ck CHECK (max_weight >= 0),
+    max_count NUMBER DEFAULT 100 CONSTRAINT max_count_ck CHECK (max_count >= 0)
+);

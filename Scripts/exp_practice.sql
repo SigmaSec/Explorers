@@ -44,7 +44,7 @@ CREATE TABLE room_connection (
     PRIMARY KEY (room_a, room_b),
     FOREIGN KEY (room_a) REFERENCES room(room_id),
     FOREIGN KEY (room_b) REFERENCES room(room_id)
-);
+)
 
 -- Stored procedures
 DELIMITER $$
